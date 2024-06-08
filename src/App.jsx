@@ -1,9 +1,14 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 function App() {
   return (
     <>
-      <h1>testing</h1>
+      <div className="container">
+        <h1>testing</h1>
+        <Button variant="success">click me</Button>
+      </div>
     </>
   );
 }
