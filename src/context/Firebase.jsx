@@ -4,6 +4,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 const FirebaseContext = createContext(null);
 
@@ -27,8 +29,23 @@ export const FirebaseProvider = ({ children }) => {
   const loginUserWithEmailAndPassword = (email, password) => {
     signInWithEmailAndPassword(firebaseAuth, email, password);
   };
+  const signInWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(firebaseAuth, provider);
+      if (result) alert("Successfully signed in with google");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword,loginUserWithEmailAndPassword }}>
+    <FirebaseContext.Provider
+      value={{
+        signUpUserWithEmailAndPassword,
+        loginUserWithEmailAndPassword,
+        signInWithGoogle,
+      }}
+    >
       {children}
     </FirebaseContext.Provider>
   );

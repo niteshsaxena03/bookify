@@ -12,7 +12,7 @@ function SignUpPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result=await firebase.signUpUserWithEmailAndPassword(email, password);
-    alert("Successfully created new user");
+    if(result)alert("Successfully created new user");
   };
   return ( 
     <div className="container mt-5 ">
@@ -26,7 +26,7 @@ function SignUpPage() {
             value={email}
           />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            We will never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 

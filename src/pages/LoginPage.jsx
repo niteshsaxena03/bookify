@@ -49,6 +49,10 @@ function LoginPage() {
           Login
         </Button>
       </Form>
+      <h1>Or</h1>
+      <Button variant="danger" onClick={() => firebase.signInWithGoogle()}>
+        Sign in With Google
+      </Button>
     </div>
   );
 }
