@@ -8,19 +8,19 @@ function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  console.log(firebase);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-    const result = await firebase.signUpUserWithEmailAndPassword(
-      email,
-      password
-    );
-    alert("Successfully logged in");
-   }catch(error){
-    console.log(error);
-    alert('Error loggin in');
-   } 
+    try {
+      const result = await firebase.loginUserWithEmailAndPassword(
+        email,
+        password
+      );
+      if (result) alert("Successfully logged in");
+    } catch (error) {
+      console.log(error);
+      alert("Error logging in");
+    }
   };
   return (
     <div className="container mt-5 ">
