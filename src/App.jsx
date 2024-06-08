@@ -1,14 +1,14 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import { Routes,Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <div className="container">
-        <h1>testing</h1>
-        <Button variant="success">click me</Button>
-      </div>
+      <Routes>
+        <Route path="/" element={<h1>home</h1>}/>
+        <Route path="/login" element={<h1>login</h1>}/>
+      </Routes>
     </>
   );
 }
