@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
 import MyCard from "../components/Card";
+import { CardGroup } from "react-bootstrap";
 
 function HomePage() {
   const firebase = useFirebase();
@@ -12,9 +13,11 @@ function HomePage() {
   }, []);
   return (
     <div className="container">
-      {books.map((book) => (
-        <MyCard key={Date.now()} {...book.data()} />
-      ))}
+      <CardGroup>
+        {books.map((book) => (
+          <MyCard key={Date.now()} {...book.data()} />
+        ))}
+      </CardGroup>
     </div>
   );
 }

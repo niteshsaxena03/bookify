@@ -12,7 +12,7 @@ function MyCard(props) {
     },[])
   return (
     <div className="mt-5">
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem" ,margin:"15px" }}>
         <Card.Img variant="top" src={url} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
