@@ -15,7 +15,7 @@ function HomePage() {
     <div className="container">
       <CardGroup>
         {books.map((book) => (
-          <MyCard key={Date.now()} {...book.data()} />
+          <MyCard id={book.id} key={Date.now()} {...book.data()} />
         ))}
       </CardGroup>
     </div>
