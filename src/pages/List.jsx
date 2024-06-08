@@ -47,10 +47,9 @@ function List() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Price</Form.Label>
+          <Form.Label>Cover pic</Form.Label>
           <Form.Control
             type="file"
-            value={coverPic}
             onChange={(e) => setcoverPic(e.target.files[0])}
           />
         </Form.Group>
