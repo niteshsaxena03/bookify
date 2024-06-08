@@ -1,11 +1,19 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useState,useEffect } from "react";
+import { useFirebase } from "../context/Firebase";
 
 function MyCard(props) {
+    const [url,setUrl]=useState(null);
+    const firebase=useFirebase();
+
+    useEffect(()=>{
+        firebase.getImageURL(props.imageURL).then((url)=>setUrl(url));
+    },[])
   return (
     <div className="mt-5">
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={url} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
           <Card.Text>

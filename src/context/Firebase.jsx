@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
@@ -89,6 +89,10 @@ export const FirebaseProvider = (props) => {
     return getDocs(collection(firestore, "books"));
   };
 
+  const getImageURL = (path) => {
+    return getDownloadURL(ref(storage, path));
+  };
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -100,6 +104,7 @@ export const FirebaseProvider = (props) => {
         isLoggedIn,
         handleCreateNewListing,
         listAllBooks,
+        getImageURL,
       }}
     >
       {props.children}
