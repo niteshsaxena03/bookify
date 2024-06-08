@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFirebase } from "../context/Firebase";
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 
 function BookDetails() {
   const params = useParams();
@@ -23,8 +24,16 @@ function BookDetails() {
   if (!data) return <h1>Loading.....</h1>;
 
   return (
-    <div className="container">
-      <img src={url} />
+    <div className="container mt-5">
+    <h1>{data.name}</h1>
+      <img src={url} width="50% " style={{ borderRadius: "10px" }} />
+      <h1>Details of this book</h1>
+      <p>Price Rs.{data.price}</p>
+      <p>ISBN No. {data.isbnNo}</p>
+      <h1>Details of owner</h1>
+      <p>Name: {data.displayName}</p>
+      <p>Email: {data.userEmail}</p>
+      <Button>Buy Now</Button>
     </div>
   );
 }
