@@ -7,6 +7,7 @@ import MyNavbar from "./components/Navbar";
 import List from "./pages/List";
 import HomePage from "./pages/HomePage";
 import BookDetails from "./pages/BookDetails";
+import ViewOrders from "./pages/ViewOrders";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/book/list" element={<List />} />
         <Route path="/book/view/:bookId" element={<BookDetails />} />
+        <Route path="/book/orders" element={<ViewOrders />} />
       </Routes>
     </>
   );
