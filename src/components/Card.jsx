@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useState, useEffect } from "react";
 import { useFirebase } from "../context/Firebase";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 function MyCard(props) {
   const [url, setUrl] = useState(null);
@@ -24,7 +24,7 @@ function MyCard(props) {
           </Card.Text>
           <Button
             variant="primary"
-            onClick={(e) => navigate(`/book/view/${props.id}`)}
+            onClick={(e) => navigate(props.link)}
           >
             View Book
           </Button>

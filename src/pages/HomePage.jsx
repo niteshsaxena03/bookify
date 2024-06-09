@@ -15,7 +15,12 @@ function HomePage() {
     <div className="container">
       <CardGroup>
         {books.map((book) => (
-          <MyCard id={book.id} key={Date.now()} {...book.data()} />
+          <MyCard
+            link={`/book/view/${book.id}`}
+            id={book.id}
+            key={Date.now()}
+            {...book.data()}
+          />
         ))}
       </CardGroup>
     </div>
