@@ -106,6 +106,18 @@ export const FirebaseProvider = (props) => {
     return result;
   };
 
+  const placeOrder=async(bookId,qty)=>{
+    const collectionRef=collection(firestore,"books",bookId,"orders");
+    const result = await addDoc(collectionRef, {
+      userID: user.uid,
+      userEmail: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      qty:Number(qty),
+    });
+    return result;
+  }
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -119,6 +131,7 @@ export const FirebaseProvider = (props) => {
         listAllBooks,
         getImageURL,
         getBookByID,
+        placeOrder,
       }}
     >
       {props.children}
